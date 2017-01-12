@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block body %}
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Lyxel Labs</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li ><a href="#">Welcome {{session['username']}}</a></li>
+            <li ><a href="{{ url_for('logout') }}">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+   <div class="row" style="margin-top:7%">
+        <div class="col-md-4 col-md-offset-4">
+            <form method=POST action="{{ url_for('upload') }}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Upload File</label>
+                    <input type="file" class="form-control" name="file" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Upload</button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block body %}
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Lyxel Labs</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li ><a href="#">Welcome {{session['username']}}</a></li>
+            <li ><a href="{{ url_for('logout') }}">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+   <div class="row" style="margin-top:7%">
+
+        <div class="col-md-2 col-md-offset-5">
+            <div>
+                <a href="{{ url_for('upload') }}" class="btn btn-primary">Upload Image</a>.
+            </div>
+        </div>
+       <div class="col-md-10 col-md-offset-1" >
+              <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>View</th>
+        <th>Download</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+         {% for record in user_data:%}
+
+            <tr>
+                <td> {{ record['username'] }} </td>
+                <td> <a href="/uploads/{{record['filename']}}" target="_blank">{{record['old_filename']}}</a>  </td>
+                <td> <a href="/uploads/{{record['filename']}}" download>{{record['old_filename']}}</a>  </td>
+                <td> {{ record['created_at'] }} </td>
+
+            </tr>
+                {% endfor %}
+        </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

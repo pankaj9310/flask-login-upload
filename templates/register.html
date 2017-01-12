@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Lyxel Labs</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+      <div class="row" style="margin-top:7%">
+        <div class="col-md-4 col-md-offset-4">
+            <form method=POST action="{{ url_for('register') }}">
+                <div class="form-group">
+                    <label for="InputUsername">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Email id</label>
+                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+{% endblock %}
