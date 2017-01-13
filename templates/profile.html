@@ -37,6 +37,7 @@
         <th>Username</th>
         <th>View</th>
         <th>Download</th>
+          <th>Filesize</th>
         <th>Created At</th>
       </tr>
     </thead>
@@ -47,6 +48,7 @@
                 <td> {{ record['username'] }} </td>
                 <td> <a href="/uploads/{{record['filename']}}" target="_blank">{{record['old_filename']}}</a>  </td>
                 <td> <a href="/uploads/{{record['filename']}}" download>{{record['old_filename']}}</a>  </td>
+                <td>{{record['file_size']}}</td>
                 <td> {{ record['created_at'] }} </td>
 
             </tr>
